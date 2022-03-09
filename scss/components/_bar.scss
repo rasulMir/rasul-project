@@ -1,0 +1,52 @@
+@import './mixines';
+@import './var-s';
+
+.top-bar {
+	@include flex(space-between, center);
+
+	&__left-wrap {
+		flex: 1 0;
+		@include flex(space-between, center);
+		color: $greyWhite;
+	}
+}
+
+.currency {
+	cursor: pointer;
+	&__arrow {
+		padding: 0 0 0 .3rem;
+	}
+}
+.users-add {
+
+	// .users-ass__link
+	&__link {
+		padding: 0 1.7rem;
+	}
+}
+.cart {
+	position: relative;
+	color: $white;
+
+	// .cart__show
+	&__show {
+		padding: 1.5rem 2.3rem;
+		@include flex(space-between, center);
+		background-color: $lightBlue;
+		cursor: pointer;
+	}
+
+	&__info {
+	}
+
+	&__arrow {
+		display: block;
+		margin: 0 0 0 .8rem;
+	}
+
+	&__cart-icon {
+		display: block;
+		margin: 0 2.2rem 0 0;
+		font-size: 2rem;
+	}
+}

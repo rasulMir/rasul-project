@@ -1,0 +1,129 @@
+@import './components/normalize';
+@import './components/var-s';
+@import './components/fonts';
+
+:root {
+	font-size: 62.5%;
+}
+.container-b {
+	max-width: 1800px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+.container-s {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+.wrapper {
+	position: relative;
+	overflow: hidden;
+}
+.header {
+}
+.bar {
+	background-color: $lightBlack;
+	font-size: 1.3rem;
+	font-family: $monts;
+	text-transform: capitalize;
+}
+.banner {
+	padding: 6rem 1rem;
+}
+
+.btn {
+	padding: 1.8em;
+	font-size: 1.6rem;
+	font-family: $monts;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 1em;
+	color:	$dark;
+	background-color: transparent;
+	border: .2rem solid $dark;
+	outline: none;
+	cursor: pointer;
+	transition: all .3s linear;
+
+	&:hover {
+		color: $white;
+		background-color: $lightBlue;
+		border-color: $lightBlue;
+	}
+}
+
+.kind-of-clothes {
+	font-family: $monts;
+	text-transform: uppercase;
+	text-align: left;
+	font-size: 1.2rem;
+
+	// .kind-of-clothes__items-top-title
+	&__items-top-title {
+		margin: 0 0 3.5rem 0;
+		font-weight: normal;
+		color: $lightBrown;
+	}
+	// .kind-of-clothes__items
+	&__items {
+
+		&:not(:last-child) {
+			margin: 0 0 2rem 0;
+		}
+	}
+	// .kind-of-clothes__link
+	&__link {
+		font-weight: 300;
+		color: $grey;
+		transition: .2s ease-in-out;
+
+		&:hover {
+			color: $lightBrown;
+		}
+	}
+}
+.discount-banner {
+	background-color: $lightBlack;
+	color: $white;
+	font-size: 36px;
+	font-family: $monts;
+	text-transform: uppercase;
+	line-height: 1.333;
+	text-align: center;
+	// .discount-banner__top-txt
+	&__top-txt {
+		font-weight: bold;
+	}
+	// .discount-banner__bttm-txt
+	&__bttm-txt {
+	}
+}
+
+.main {
+}
+
+.card-body {
+	font-family: $monts;
+
+	// .card-body__title
+	&__title {
+		font-size: 1.8rem;
+		color: $lightBrown;
+		text-transform: uppercase;
+	}
+
+	// .card-body__subtitle
+	&__subtitle {
+		font-size: 1.3rem;
+		color: $darkerGrey;
+		text-transform: uppercase;
+	}
+
+	// .card-body__txt
+	&__txt {
+		font-size: 1.5rem;
+		font-family: "Roboto";
+		color: $grey;
+		line-height: 1.467;
+	}
+}

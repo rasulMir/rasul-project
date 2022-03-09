@@ -1,0 +1,116 @@
+@import './var-s';
+@import './mixines';
+
+.head {
+	padding: 4rem 0 0 0;
+	@include flex(space-between, center);
+}
+.logo {
+	padding: 0 0 2rem 0;
+  color: $darkBlack;
+	letter-spacing: .5rem;
+  font-size: 2.4rem;
+  font-family: $monts;
+  text-transform: uppercase;
+  line-height: 1.2;
+	// .logo__left-word
+	&__left-word {
+		font-weight: bold;
+	}
+	// .logo__right-word
+	&__right-word {
+	}
+}
+.nav {
+	flex: 0 0 900 / 1770 * 100%;
+	@include flex(space-between, center);
+}
+.menu {
+	flex: 0 0 600 / 900 * 100%;
+	@include flex(space-between, center);
+	// .menu__item
+	&__item {
+		padding: 0 0 1rem 0;
+		position: relative;
+		font-size: 1.3rem;
+		font-family: $monts;
+		font-weight: bold;
+		color: $darkBlack;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		&:hover > .menu__item-name {
+			color: $lightBlue;
+		}
+
+		&:hover > .hover-box {
+			display: block;
+		}
+		&:last-child:hover > .hover-box {
+			display: block;
+			left: -150px;
+		}
+	}
+	// .menu__item-name
+	&__item-name {
+		padding: 0 0 1rem 0;
+		position: relative;
+		transition: .3s ease-in;
+	}
+	// .menu__arrow-icon
+	&__arrow-icon {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+}
+.hover-box {
+	padding: 3rem;
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	min-width: 370px;
+	background-color: $lightSilver;
+	box-shadow: 0px .7rem 2.4rem 0px rgba(0, 0, 0, 0.14);
+	// .hover-box__top
+
+	&__top {
+		margin: 0 0 6rem 0;
+		@include flex(space-between, stretch);
+
+		&-col {
+			flex: 0 0 40%;
+		}
+	}
+}
+
+.search {
+	flex: 0 0 190px;
+	position: relative;
+	padding: 0 0 2rem 0;
+
+	// .search__inp
+	&__inp {
+		margin: 0;
+		padding: 1rem 1.8rem 1rem 1rem;
+		width: 100%;
+		font-size: 1.3rem;
+		font-family: $monts;
+		border: .1rem solid $darkWhite;
+		outline: none;
+		
+		&::placeholder {
+			color: rgba($darkGrey, 5);
+		}
+	}
+	// .search__icon
+	&__icon {
+		position: absolute;
+		top: 25%;
+		right: 1rem;
+		transform: translateY(-25%);
+		font-size: 2rem;
+		color: $darkGrey;
+	}
+}

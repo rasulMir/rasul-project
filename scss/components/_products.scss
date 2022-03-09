@@ -1,0 +1,72 @@
+@import './var-s';
+@import './mixines';
+
+
+.products {
+	position: relative;
+	padding: 6rem 0;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: .1rem;
+		background-color: $whiterGrey;
+	}
+	&::before {
+		top: 6rem;
+	}
+	&::after {
+		bottom: 6rem;
+	}
+}
+.products-category {
+	padding: 5rem 0;
+	@include flex(flex-start, center);
+
+	// .products-category__item
+	&__item {
+		font-size: 1.3rem;
+		font-family: $monts;
+		color: $darkerGrey;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: .3s linear;
+
+		&:hover {
+			color: $lightBlue;
+		}
+
+		&:not(:last-child) {
+			margin: 0 5rem 0 0;
+		}
+	}
+}
+.products-content {
+	padding: 0 0 3rem 0;
+	@include flex(space-between, flex-start);
+
+	// .products-content__col
+	&__col {
+		flex: 0 0 870 / 1770 * 100%;
+		@include flex(space-between, flex-start);
+		flex-flow: row wrap;
+
+		&:nth-child(even) {
+			& > .product-card:first-child {
+				flex: 0 0 100%;
+				min-height: 705px;
+			}
+		}
+		&:nth-child(odd) {
+			& > .product-card:last-child {
+				flex: 0 0 100%;
+				min-height: 705px;
+			}
+		}
+	}
+}
+
+@import './prod-card';

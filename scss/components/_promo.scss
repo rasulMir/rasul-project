@@ -1,0 +1,31 @@
+@import './var-s';
+@import './mixines';
+
+.promo {
+	// min-height: 920px;
+	background: url(../../images/promo-bg.jpg) center/cover no-repeat;
+}
+.promo-content {
+	padding: 0 0 12rem 0;
+
+	// .promo-content__title
+	&__title {
+		margin: 0 0 12rem 0;
+		font-size: 45rem;
+		font-family: $monts;
+		color: $darkBrown;
+		font-weight: bold;
+		text-transform: uppercase;
+		@include flex(space-around, center);
+	}
+	// .promo-content__bttm
+	&__bttm {
+		@include flex(flex-end);
+
+		&-btn {
+			flex: 0 0 345px;
+		}
+	}
+
+}
+

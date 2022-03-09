@@ -1,0 +1,16 @@
+@import './var-s';
+@import './mixines';
+
+.store-content {
+
+	// .store-content__body
+	&__body {
+		padding: 6rem 0;
+		@include flex(space-between, stretch);
+	}
+
+	// .store-content__card
+	&__card {
+		flex: 0 0 370 / 1170 * 100%;
+	}
+}

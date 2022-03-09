@@ -1,0 +1,13 @@
+@mixin flex($jc: flex-start, $ai: stretch, $fd:row) {
+	display: flex;
+	justify-content: $jc;
+	align-items: $ai;
+  flex-direction: $fd;
+}
+@mixin position($top, $left,$bottom: auto,$right: auto) {
+	position: absolute;
+	top: $top;
+	left: $left;
+	bottom: $bottom;
+	right: $right;
+}

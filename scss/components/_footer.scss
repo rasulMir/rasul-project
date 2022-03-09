@@ -1,0 +1,61 @@
+@import './var-s';
+@import './mixines';
+
+.footer {
+}
+.footer-links {
+	padding: 5.5rem 0;
+	background-color: $lightSilver;
+}
+
+.footer-link-lists {
+	margin: 0 0 6.5rem 0;
+	@include flex(space-between, flex-start);
+
+	&__col {
+		flex: 1 0;
+	}
+}
+
+.footer-banners {
+	@include flex(space-between, stretch);
+
+	&__col {
+		flex: 0 0 570 / 1200 * 100%;
+	}
+}
+.socials-banner {
+	min-height: 100%;
+	background-color: $lightBlue;
+	@include flex(stretch, center);
+}
+.socials-list {
+	flex: 1 0;
+	padding: 0 2rem;
+	@include flex(center, center);
+	// .socials-list__item
+	&__item {
+	}
+	// .socials-list__link
+	&__link {
+		color: $white;
+		font-size: 3.6rem;
+	}
+	// .socials-list__icon
+	&__icon {
+		padding: .85em;
+	}
+}
+.bar-info {
+	padding: 1.5rem 0;
+	@include flex(space-between, center);
+	color: $darkerGrey;
+	// .bar-info__col
+	&__col {
+	}
+	// .bar-info__author
+	&__author {
+		margin: 0 3.5rem 0 0;
+	}
+}
+

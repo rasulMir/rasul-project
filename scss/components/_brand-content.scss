@@ -1,0 +1,70 @@
+@import './var-s';
+@import './mixines';
+
+.brand-content {
+}
+.about-us {
+	padding: 6rem 0;
+	@include flex(space-between, flex-start);
+	flex-wrap: wrap;
+
+	// .about-us__card
+	&__card {
+		margin: 0 0 6rem 0;
+		flex: 0 0 570 / 1170 * 100%;
+
+		// .about-us__card_row
+		&_row {
+			flex: 0 0 100%;
+			@include flex(space-between, center);
+			& > .about-us__img {
+				flex: 0 0 570 / 1170 * 100%;
+				margin: 0 3rem 0 0;
+			}
+		}
+
+		&:last-child {
+			margin: -16rem 0 6rem 0;
+		}
+	}
+
+	// .about-us__img
+	&__img {
+		min-height: 400px;
+
+		& > img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	// .about-us__card-body
+	&__card-body {
+	}
+
+	// .about-us__card-title
+	&__card-title {
+	}
+
+	// .about-us__card-subtitle
+	&__card-subtitle {
+	}
+
+	// .about-us__card-txt
+	&__card-txt {
+	}
+}
+
+.our-awards {
+	margin: -26rem 0 13rem 0;
+	@include flex(flex-end, stretch);
+	&__imgs {
+		max-height: 100px;
+		flex: 0 0 570 / 1170 * 100%;
+		@include flex(space-between, stretch);
+
+		& > img {
+			height: 100%;
+		}
+	}
+}

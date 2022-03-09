@@ -1,0 +1,70 @@
+
+@import './var-s';
+@import './mixines';
+
+.map {
+	@include flex(stretch, stretch);
+
+	// .map__left
+	&__left {
+		flex: 1 0;
+
+		& > iframe {
+			height: 100%;
+		}
+	}
+
+	// .map__right
+	&__right {
+		padding: 4rem;
+		flex: 0 0 660 / 2050 * 100%;
+	}
+}
+.stores-links {
+	margin: 0 0 5rem 0;
+
+	// .stores-links__items
+	&__items {
+		position: relative;
+		padding: 0 0 0 2.5rem;
+
+		& > i {
+			position: absolute;
+			top: 0;
+			left: 0;
+			font-size: 1.4rem;
+			color: $grey;
+		}
+	}
+}
+.stores-social {
+	flex: 1 0;
+	padding: 0 2rem;
+	@include flex(flex-start, center);
+
+	// .stores-social__item
+	&__item {
+
+		&:not(:last-child) {
+			margin: 0 1.5rem 0 0;
+		}
+	}
+
+	// .stores-social__link
+	&__link {
+		position: relative;
+		font-size: 1.7rem;
+		color: $white;
+		padding: .5em .8em;
+		background-color: $grey;
+		border-radius: 50%;
+	}
+
+	// .stores-social__icon
+	&__icon {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
