@@ -1,50 +1,50 @@
 <div class="products-content__col">
-						<div class="product-card">
-							<img class="product-card__main-image" src="./images/prod-1.jpg" alt="main product image">
+	<div class="product-card">
+		<img class="product-card__main-image" src="./images/prod-1.jpg" alt="main product image">
 
-							<div class="product-card__top">
-								<div class="product-card__price-wrap">
-									<span class="product-price">
-										<span class="product-price__price product-price__price_before"></span>
-										<span class="product-price__price">
-											89.99
-										</span>
-									</span>
-								</div>
+		<div class="product-card__top">
+			<div class="product-card__price-wrap">
+				<span class="product-price">
+					<span class="product-price__price product-price__price_before"></span>
+					<span class="product-price__price">
+						89.99
+					</span>
+				</span>
+			</div>
 
-								<div class="product-card__mini-imgs">
-									<img src="./images/prod-1.jpg" alt="product image">
-									<img src="./images/prod-1.jpg" alt="product image">
-								</div>
-							</div>
-							
-							<div class="product-card__bttm">
-								<div class="product-card__prod-name">
-									Womens burnt orange casual tee
-									<span class="product-price">
-										<span class="product-price__price product-price__price_before"></span>
-										<span class="product-price__price">
-											89.99
-										</span>
-									</span>
-								</div>
+			<div class="product-card__mini-imgs">
+				<img src="./images/prod-1.jpg" alt="product image">
+				<img src="./images/prod-1.jpg" alt="product image">
+			</div>
+		</div>
+		
+		<div class="product-card__bttm">
+			<div class="product-card__prod-name">
+				Womens burnt orange casual tee
+				<span class="product-price">
+					<span class="product-price__price product-price__price_before"></span>
+					<span class="product-price__price">
+						89.99
+					</span>
+				</span>
+			</div>
 
-								<div class="product-card__description">
-									Classic casual t-shirt for women on the move.  100% cotton.
-								</div>
+			<div class="product-card__description">
+				Classic casual t-shirt for women on the move.  100% cotton.
+			</div>
 
-								<div class="product-card-btns">
-									<button class="product-card-btns__btn" id="addToCard" type="button">
-										<i class="product-card-btns__icon fa fa-shopping-cart"></i>
-									</button>
-									<button class="product-card-btns__btn" id="putLike" type="button">
-										<i class="product-card-btns__icon fa fa-heart"></i>
-									</button>
-									<button class="product-card-btns__btn" id="theZoom" type="button">
-										<i class="product-card-btns__icon fa fa-compress"></i>
-									</button>
-								</div>
-							</div>
-							
-						</div>
-					</div>
+			<div class="product-card-btns">
+				<button class="product-card-btns__btn" id="addToCard" type="button">
+					<i class="product-card-btns__icon fa fa-shopping-cart"></i>
+				</button>
+				<button class="product-card-btns__btn" id="putLike" type="button">
+					<i class="product-card-btns__icon fa fa-heart"></i>
+				</button>
+				<button class="product-card-btns__btn" id="theZoom" type="button">
+					<i class="product-card-btns__icon fa fa-compress"></i>
+				</button>
+			</div>
+		</div>
+		
+	</div>
+</div>

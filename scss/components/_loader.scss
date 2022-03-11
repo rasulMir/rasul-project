@@ -1,0 +1,59 @@
+@import './var-s';
+@import './mixines';
+
+.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: $loaderBG;
+	@include flex(center, center);
+	z-index: 99;
+
+	// .loader__circle
+	&__circle {
+		position: relative;
+		flex: 0 0 10rem;
+		height: 10rem;
+		border-radius: 50%;
+		overflow: hidden;
+		animation: circle .5s linear forwards infinite;
+
+		@keyframes circle {
+			0% {
+			}
+			40% {
+				transform: rotateZ(180deg);
+			}
+			50% {
+				transform: rotateZ(180deg);
+			}
+			90% {
+				transform: rotateZ(360deg);
+			}
+			100% {
+				transform: rotateZ(360deg);
+			}
+			
+		}
+	}
+
+	// .loader__triangle
+	&__triangle {
+		position: absolute;
+
+		// .loader__triangle_right
+		&_right {
+			border-width: 5rem 5rem 5rem 5rem;
+			border-style: solid;
+			border-color:  transparent $white transparent transparent;
+		}
+		// .loader__triangle_left
+		&_left {
+			border-width: 5rem 5rem 5rem 5rem;
+			border-style: solid;
+			border-color: transparent transparent transparent $white;
+		}
+	}
+}

@@ -22,6 +22,11 @@
 	// .users-ass__link
 	&__link {
 		padding: 0 1.7rem;
+		transition: .3s ease-in;
+
+		&:hover {
+			color: $lightBlue;
+		}
 	}
 }
 .cart {

@@ -1,0 +1,93 @@
+@import './mixines';
+@import './var-s';
+
+.form {
+	padding: 0 3.5rem;
+
+	// .form__title
+	&__title {
+		margin: 0 0 4.5rem 0;
+		font-size: 1.8rem;
+		font-family: $monts;
+		color: $dark;
+		text-transform: uppercase;
+	}
+
+	// .form__inp-wrap
+	&__inp-wrap {
+		margin: 0 0 3.5rem 0;
+	}
+
+	// .form__inp
+	&__inp {
+		width: 100%;
+		padding: .7em .6em;
+		font-family: $monts;
+		color: $darkGrey;
+		font-size: 1.5rem;
+		border: .1rem solid $darkGrey;
+		outline: none;
+
+		&::placeholder {
+			text-transform: capitalize;
+		}
+
+		&:focus {
+			border-color: $pink;
+			background-color: rgba($pink, .05);
+		}
+	}
+
+	// .form__bttm
+	&__bttm {
+		@include flex(space-between, center);
+	}
+
+	// .form__link
+	&__link {
+		padding: 0 2rem 0 .5rem;
+		position: relative;
+		font-size: 1.5rem;
+		font-family: "Roboto";
+		color: $lightBlue;
+		text-align: right;
+		text-transform: capitalize;
+	}
+
+	// .form__lbl
+	&__lbl {
+		display: block;
+		font-size: 1.5rem;
+		font-family: "Roboto";
+		color: $darkGrey;
+	}
+
+	// .form__inp-chbx
+	&__inp-chbx {
+		border: .1rem solid $darkGrey;
+		outline: none;
+	}
+
+	// .form__attention
+	&__attention {
+		flex: 0 0 220px;
+		font-size: 1.5rem;
+		font-family: "Roboto";
+		text-align: right;
+		color: $dark;
+		line-height: 1.467;
+	}
+
+	// .form__btn
+	&__btn {
+		padding: 2.4rem 3.5rem;
+	}
+
+	// .form__btn-icon
+	&__link-icon {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+	}
+}

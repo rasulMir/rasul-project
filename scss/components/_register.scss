@@ -1,0 +1,28 @@
+@import './mixines';
+@import './var-s';
+
+.register {
+
+}
+
+.register-wrap {
+	padding: 6rem 0 12.5rem;
+	@include flex(stretch, flex-start);
+
+	// .register-wrap__col
+	&__col {
+		position: relative;
+		flex: 1 0;
+
+		&:first-child::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 0.1rem;
+			height: 100%;
+			transform: translateX(-50%);
+			background-color: $whiterGrey;
+		}
+	}
+}
