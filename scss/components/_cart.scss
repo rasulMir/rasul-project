@@ -1,0 +1,149 @@
+
+@import './mixines';
+@import './var-s';
+
+.cart {
+	position: relative;
+	color: $white;
+
+	&:hover > .cart-list {
+		opacity: 1;
+	}
+
+	// .cart__show
+	&__show {
+		padding: 1.5rem 2.3rem;
+		@include flex(space-between, center);
+		background-color: $lightBlue;
+		cursor: pointer;
+	}
+
+	&__info {
+	}
+
+	&__arrow {
+		display: block;
+		margin: 0 0 0 .8rem;
+	}
+
+	&__cart-icon {
+		display: block;
+		margin: 0 2.2rem 0 0;
+		font-size: 2rem;
+	}
+}
+.cart-list {
+	min-width: 400px;
+	opacity: 0;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	padding: 1.5rem;
+	background-color: #F9F7F9;
+	color: $black;
+	text-align: center;
+	box-shadow: 0 .5rem 1rem rgba($black, .5);
+	z-index: 9;
+	transition: .3s linear;
+
+	// .cart-list__top
+	&__top {
+
+	}
+
+	// .cart-list__item
+	&__item {
+		@include flex(space-between, center);
+		margin: 0 0 1.5rem 0;
+		font-family: $monts;
+		font-size: 1.4rem;
+		color: $black;
+	}
+
+	// .cart-list__img
+	&__img {
+		position: relative;
+		flex: 0 0 50px;
+		height: 50px;
+		overflow: hidden;
+		border: .1px solid $darkBrown;
+		border-radius: 50%;
+
+		& > img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	// .cart-list__title
+	&__title {
+		position: relative;
+		margin: 0;
+		padding: 0 .25rem;
+		flex: 0 0 210px;
+		overflow: hidden;
+		font-weight: normal;
+		text-transform: capitalize;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+
+	}
+
+	&__lbl {
+		flex: 0 0 40px;
+	}
+
+	// .cart-list__inp-counter
+	&__inp-counter {
+		padding: .25rem;
+		width: 100%;
+		outline: none;
+		border: .05rem solid $darkBrown;
+	}
+
+	// .cart-list__btn
+	&__btn {
+		color: $white;
+		text-transform: capitalize;
+		padding: .5em;
+		background-color: $lightBlue;
+		outline: none;
+		border: none;
+		cursor: pointer;
+		transition: .4s linear;
+
+		&:hover {
+			background-color: rgba($lightBlue, .7);
+		}
+	}
+
+	// .cart-list__bttm
+	&__bttm {
+		@include flex(space-around, center);
+		flex-wrap: wrap;
+		& > .cart-list__btn {
+			flex: 0 0 30%;
+		}
+
+		&_disabled {
+			display: none;
+		}
+	}
+
+	// .cart-list__total
+	&__total {
+		margin: 0 0 1rem 0;
+		flex: 0 0 100%;
+		text-align: center;
+		text-transform: capitalize;
+		padding: .3em;
+		font-size: 1.4rem;
+		color: $black;
+	}
+}

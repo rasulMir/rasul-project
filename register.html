@@ -11,6 +11,15 @@
 </head>
 <body>
 	<div class="wrapper">
+		<div class="loader">
+			<div class="loader__circle">
+				<span class="loader__triangle loader__triangle_right"></span>
+				<span class="loader__triangle loader__triangle_left"></span>
+			</div>
+		</div>
+		<div class="pop-up">
+			
+		</div>
 		<header class="header">
 			<div class="bar">
 				<div class="container-s">
@@ -46,7 +55,7 @@
 				<div class="container-b">
 					<div class="head">
 
-						<a href="#" class="logo">
+						<a href="./home.html" class="logo">
 							<span class="logo__left-word">Avenue</span>
 							<span class="logo__right-word">Fashion</span>
 						</a>
@@ -322,12 +331,12 @@
 					<div class="register-wrap">
 
 						<div class="register-wrap__col">
-							<form action="#" class="form">
+							<form action="#" class="form" id="authorization">
 								<h3 class="form__title">
 									sign in
 								</h3>
 								<div class="form__inp-wrap">
-									<input class="form__inp" type="email" name="mail" id="mail" placeholder="Your Email." required>
+									<input class="form__inp" type="text" autofocus name="login" id="login" placeholder="Your Email." required>
 								</div>
 								
 								<div class="form__inp-wrap">
@@ -348,12 +357,12 @@
 						</div>
 
 						<div class="register-wrap__col">
-							<form action="#" class="form">
+							<form action="#" class="form" id="registration">
 								<h3 class="form__title">
 									register
 								</h3>
 								<div class="form__inp-wrap">
-									<input class="form__inp" type="email" name="newMail" id="newMail" placeholder="Your Email." required>
+									<input class="form__inp" type="text" name="newLogin" id="newLogin" placeholder="Your Email." required>
 								</div>
 								
 								<div class="form__inp-wrap">
@@ -565,6 +574,6 @@
 			</div>
 		</footer>
 	</div>
-	
+	<script src="./js/register.js" type="module"></script>
 </body>
 </html>

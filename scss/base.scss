@@ -127,3 +127,36 @@
 		line-height: 1.467;
 	}
 }
+.pop-up {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateX(100%);
+	display: inline-block;
+	max-width: 200px;
+	padding: .5em;
+	font-family: $monts;
+	font-size: 1.6rem;
+	color: $white;
+	text-align: center;
+	text-transform: capitalize;
+	background-color: green;
+	z-index: 99;
+
+	&_show {
+		animation: pop-up 1s linear 1;
+
+		@keyframes pop-up {
+			100% {
+				transform: translateX(100%);
+			}
+			20% {
+				transform: translateX(-100%);
+			}
+			80% {
+				transform: translateX(-100%);
+			}
+		}
+	}
+}
+@import './components/loader';

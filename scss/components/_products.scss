@@ -47,21 +47,21 @@
 .products-content {
 	padding: 0 0 3rem 0;
 	@include flex(space-between, flex-start);
-
-	// .products-content__col
+	flex-flow: row wrap;
 	&__col {
 		flex: 0 0 870 / 1770 * 100%;
 		@include flex(space-between, flex-start);
 		flex-flow: row wrap;
 
-		&:nth-child(even) {
-			& > .product-card:first-child {
+		&:nth-child(odd) {
+			& > .product-card:last-child {
 				flex: 0 0 100%;
 				min-height: 705px;
 			}
 		}
-		&:nth-child(odd) {
-			& > .product-card:last-child {
+
+		&:nth-child(even) {
+			& > .product-card:first-child {
 				flex: 0 0 100%;
 				min-height: 705px;
 			}

@@ -29,29 +29,6 @@
 		}
 	}
 }
-.cart {
-	position: relative;
-	color: $white;
 
-	// .cart__show
-	&__show {
-		padding: 1.5rem 2.3rem;
-		@include flex(space-between, center);
-		background-color: $lightBlue;
-		cursor: pointer;
-	}
+@import './cart';
 
-	&__info {
-	}
-
-	&__arrow {
-		display: block;
-		margin: 0 0 0 .8rem;
-	}
-
-	&__cart-icon {
-		display: block;
-		margin: 0 2.2rem 0 0;
-		font-size: 2rem;
-	}
-}
