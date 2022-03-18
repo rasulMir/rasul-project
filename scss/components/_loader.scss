@@ -9,6 +9,7 @@
 	height: 100vh;
 	background-color: $loaderBG;
 	@include flex(center, center);
+	overflow: hidden;
 	z-index: 99;
 
 	// .loader__circle

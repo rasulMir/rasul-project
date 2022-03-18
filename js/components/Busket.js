@@ -1,49 +1,39 @@
-import DB from './DB.js';
+import Common from './Common.js';
 
-export default class Busket {
+export default class Busket extends Common {
 
 	constructor() {
-		this.DB = new DB;
+		super();
+	}
+
+	async initDOM() {
+		this.user = await this.get('users', this.getCurrent());
 		this.cartInfo = document.querySelector('.cart__info');
 		this.cartList = document.querySelector('.cart-list');
 	}
 
-	displayBusket() {
+	totalPrice(busket) {
+		return busket.reduce((acc, item) => {
+			return acc + +((item.price / 100) * (100 - item.discount)).toFixed();
+		}, 0);
+	}
 
-		this.DB.request(async (db) => {
-			let transaction = db.transaction('busket', "readonly");
-			let store = transaction.objectStore('busket');
-			let item = store.getAll();
+	displayBusket = async () => {
 
-			item.addEventListener('error', err => console.log(err.target));
-
-			item.addEventListener('success', ev => {
-				let busket = ev.target.result;
-
-				if (busket.length) {
-					let cartListTop = this.itemsInBusketTemple(busket);
-					this.cartInfo.textContent = busket.length;
-					let total = busket.reduce((acc, item) => {
-						return acc + +((item.price / 100) * (100 - item.discount)).toFixed();
-					}, 0);
-
-					let cartListBttm = this.cartListBttm(total);
-					this.cartList.insertAdjacentHTML('beforeend', cartListTop);
-					this.cartList.insertAdjacentHTML('beforeend', cartListBttm);
-				} else {
-					this.cartList.textContent = 'EMPTY';
-				}
-			});
-		});
-
+		if (this.user) {
+			if (this.user.busket.length) {
+				let cartListTop = this.itemsInBusketTemple(this.user.busket);
+				this.cartList.innerHTML = cartListTop;
+			}
+		}
+		
+		this.showItemsInBusket();
 	}
 
 	itemsInBusketTemple(dataArr) {
-		let cartListTop = document.createElement('div');
-		cartListTop.classList.add('cart-list__top');
-		return cartListTop.innerHTMl = dataArr.map(item => {
+		let items = dataArr.map(item => {
 			return `
-				<li class="cart-list__item">
+				<li class="cart-list__item" data-key="${item.productCode}">
 					<div class="cart-list__img">
 						<img src="${item.img}" alt="product image">
 					</div>
@@ -55,7 +45,10 @@ export default class Busket {
 					</label>
 					<button class="cart-list__btn" type="button" id="deleteItem">delete</button>
 				</li>
-			`}).join('');
+			`;
+		}).join('');
+		return `<ul class="cart-list__top">${ items }</ul> 
+						${this.cartListBttm(this.totalPrice(dataArr))}`;
 	}
 
 	cartListBttm(total) {
@@ -70,34 +63,72 @@ export default class Busket {
 		`;
 	}
 
-	addToBusket(db, item, clickedElem) {
-		let transaction = db.transaction('busket', "readwrite");
-		let store = transaction.objectStore('busket');
-		let request = store.add(item);
-		request.addEventListener('error', ev => {
-			this.DB.showPopUp('this item has already been added');
-		});
-		request.addEventListener('success', ev => {
-			this.displayBusket();
-			clickedElem.closest('#addToBusket').disabled = true;
-		});
+	async getCurrProduct(currBtn) {
+		let prodCode = currBtn.closest('.product-card').dataset.code;
+		return await this.get('products', +prodCode);
 	}
 
-	init() {
-		this.displayBusket();
-		document.addEventListener('click', e => {
-			let clickedElem = e.target;
+	clearBusket = async (ev) => {
+		let clearItemsBtn = ev.target.closest('#clearItems');
+
+		if (clearItemsBtn) {
+			let busket = await this.getAll('busket');
+			busket.forEach(async item => await this.delete('busket', item.productCode));
+			this.user.busket = [];
+			await this.set('users', this.user);
+			this.showPopUp('busket has been cleared');
+			this.displayBusket();
+		}
+	}
+
+	addToBusket = async (ev) => {
+		let currBtn = ev.target;
+		if (currBtn.closest('#addToBusket')) {
+			let product = await this.getCurrProduct(currBtn);
+			await this.set('busket', product);
+			this.user.busket = await this.getAll('busket');
+			let request = await this.set('users', this.user);
+			if (request) {
+				this.showPopUp(' item added ');
+				this.displayBusket();
+			}
+			else return;
+		}
+	}
+
+	clearItem = async (ev) => {
+		let delBtn = ev.target;
+		if (delBtn.closest('#deleteItem')) {
+			let code = delBtn.closest('.cart-list__item').dataset.key;
+			await this.delete('busket', +code);
+			this.user.busket = await this.getAll('busket');
+			let request = await this.set('users', this.user);
+			if (request) {
+				this.showPopUp(' item deleted ');
+				this.displayBusket();
+			}
+			else return;
 			
-			if (clickedElem.closest('#addToBusket')) {
-				let prodCode = +clickedElem.closest('.product-card').dataset.code;
-				this.DB.request( async (db) => {
-					let currProduct = await this.DB.getData(db, prodCode, 'products');
-					this.addToBusket(db, currProduct, clickedElem);
-				});
-			}
-			else {
-				return;
-			}
+		}
+		else return;
+	}
+
+	showItemsInBusket() {
+		if (!this.user.busket.length) {
+			this.cartInfo.textContent = 'EMPTY';
+			this.cartList.textContent = 'EMPTY';
+		} else {
+			this.cartInfo.textContent = this.user.busket.length;
+		}
+	}
+
+	async init() {
+		await this.initDOM();
+		this.displayBusket();
+		document.addEventListener('click', ev => {
+			this.addToBusket(ev);
+			this.clearItem(ev);
+			this.clearBusket(ev);
 		});
 	}
 }

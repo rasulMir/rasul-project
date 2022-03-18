@@ -1,7 +1,8 @@
-import DB from "./DB.js";
-export default class Authorization {
+import Common from "./Common.js";
+
+export default class Authorization extends Common {
 	constructor() {
-		this.DB = new DB;
+		super();
 		this.initDOM();
 	}
 
@@ -11,22 +12,27 @@ export default class Authorization {
 		this.inpPassword = document.querySelector('#pass');
 	}
 
-	checkUser = async (db) => {
+	async checkUser() {
 		let inpLog = this.inpLogin.value;
 		let inpPass = this.inpPassword.value;
-		let {login, password} = await this.DB.getData(db, inpLog, 'users') || { undefined, undefined};
-		if (inpLog === login && inpPass === password) {
-			localStorage.setItem('current', login);
-			this.DB.redirect('./home.html');
-		} else {
-			this.DB.showPopUp('incorrect login or password');
-		}
+		let user = await this.get('users', inpLog);
+
+		if (user) {
+			if (user.password === inpPass) {
+				localStorage.setItem('current', inpLog);
+				this.redirect('./home.html');
+			} 
+			else this.showPopUp('incorrect paswword');
+		} 
+		else this.showPopUp('incorrect login');
+
+		this.clearInputs([this.inpLogin, this.inpPassword]);
 	}
 
 	init() {
 		this.form.addEventListener('submit', ev => {
 			ev.preventDefault();
-			this.DB.request(this.checkUser);
+			this.checkUser();
 		});
 	}
 }

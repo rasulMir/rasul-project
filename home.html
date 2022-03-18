@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<div class="wrapper">
+	<div class="wrapper hidden">
 		<div class="loader">
 			<div class="loader__circle">
 				<span class="loader__triangle loader__triangle_right"></span>
@@ -592,8 +592,17 @@
 				</div>
 			</div>
 		</footer>
-	</div>
 
+		<div class="pop-up-link">
+			<div class="pop-up-link__inner-wrap">
+				<p class="pop-up-link__text">
+					you are not logged in, 
+					<a href="./register.html" class="pop-up-link__link">log in</a> or <a href="./register.html" class="pop-up-link__link">register</a> 
+				</p>
+			</div>
+		</div>
+	</div>
+	<script src="./js/components/DB.js" type="module"></script>
 	<script src="./js/home.js" type="module"></script>
 </body>
 </html>

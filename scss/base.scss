@@ -1,6 +1,7 @@
 @import './components/normalize';
 @import './components/var-s';
 @import './components/fonts';
+@import './components/mixines';
 
 :root {
 	font-size: 62.5%;
@@ -144,7 +145,7 @@
 	z-index: 99;
 
 	&_show {
-		animation: pop-up 1s linear 1;
+		animation: pop-up 1.5s linear 1;
 
 		@keyframes pop-up {
 			100% {
@@ -156,6 +157,46 @@
 			80% {
 				transform: translateX(-100%);
 			}
+		}
+	}
+}
+.pop-up-link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba($black, .3);
+	z-index: 10;
+	// .pop-up-link__inner-wrap
+	&__inner-wrap {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding: 1.5rem;
+		min-width: 15%;
+		min-height: 20%;
+		@include flex(center, center);
+		background-color: $white;
+		border-radius: .5rem;
+	}
+
+	// .pop-up-link__text
+	&__text {
+		text-transform: capitalize;
+		font-family: $monts;
+		font-size: 1.4rem;
+		color: $black;
+	}
+
+	// .pop-up-link__link
+	&__link {
+		text-transform: uppercase;
+		color: $lightBlue;
+		font-weight: bold;
+		transition: .15s linear;
+		&:hover {
+			text-decoration: underline;
 		}
 	}
 }

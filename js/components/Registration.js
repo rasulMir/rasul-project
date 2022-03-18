@@ -1,7 +1,8 @@
-import DB from "./DB.js";
-export default class Registration {
+import Common from "./Common.js";
+
+export default class Registration extends Common {
 	constructor() {
-		this.DB = new DB;
+		super();
 		this.initDOM();
 	}
 
@@ -13,55 +14,45 @@ export default class Registration {
 		this.chbx = document.querySelector('#signUpdates');
 	}
 
-	passwordsConfirmed(pass1, pass2) {
-		if (pass1 === pass2) {
-			return true;
-		}
-		return false;
-	}
-
-	addNewUser = (db, newUser) => {
-		db.addEventListener('error', err => {
-			this.DB.showPopUp('such login has already exist');
-			return;
-		});
-
-		let transaction = db.transaction('users', "readwrite");
-		let store = transaction.objectStore('users');
-		let request = store.add(newUser);
-
-		request.addEventListener('success', ev => {
-			this.DB.showPopUp('you have created an account');
-			this.DB.redirect('./home.html');
-			// this.DB.clearBusket();
-		});
+	checkPass(pass1, pass2) {
+		return (pass1 === pass2) ? true : false;
 	}
 
 	getValues() {
 		let pass2 = this.inpConfirmPass.value;
 		let newUser = {
-			login : this.inpLogin.value,
+			login : this.inpLogin.value.toLowerCase(),
 			password : this.inpPass.value,
+			busket : [],
 			isSignUpdates : this.chbx.checked
 		}
-
 		return {pass2, newUser};
 	}
 
-	checkForm = async (db) => {
+	async checkForm() {
 		let { pass2, newUser } = this.getValues();
-		if (!this.passwordsConfirmed(newUser.password, pass2)) {
-			this.DB.showPopUp('password is not confirm');
+		let isLogin = await this.checkLogin(newUser.login);
+		let isPassConfirm = this.checkPass(newUser.password, pass2);
+
+		if (isLogin) {
+			this.showPopUp('such login has already exist');
 		}
-		else if (newUser.login && this.passwordsConfirmed(newUser.password, pass2)) {
-			this.addNewUser(db, newUser);
+		if (!isPassConfirm) {
+			this.showPopUp('password is not confirm');
+		}
+		if (!isLogin && isPassConfirm) {
+			await this.set('users', newUser);
+			localStorage.setItem('current', newUser.login);
+			this.showPopUp('you have created an account');
+			this.redirect('./home.html');
+			this.clearInputs([ this.inpLogin, this.inpConfirmPass, this.inpPass ]);
 		}
 	}
 
 	init() {
 		this.form.addEventListener('submit', e => {
 			e.preventDefault();
-			this.DB.request(this.checkForm);
+			this.checkForm();
 		});
 	}
 }

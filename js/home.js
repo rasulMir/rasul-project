@@ -1,21 +1,51 @@
 import Busket from "./components/Busket.js";
-import DB from "./components/DB.js";
-import ProdCardImgSwitcher from "./components/ProdCardImgSwitcher.js";
-import ProductRender from "./components/ProductsRender.js";
+import Cards from './components/Cards.js';
+import Common from "./components/Common.js";
 
-document.querySelector('.loader').style.display = 'none';
+class Home extends Common {
+	constructor() {
+		super();
+	}
 
-let db = new DB;
-db.open();
+	throwToRegistration() {
+		let popUp = document.querySelector('.pop-up-link');
+		popUp.style.height = `${window.screen.availHeight}px`;
+		if (!this.getCurrent()) {
+			popUp.style.display = '';
+			document.body.style.overflow = 'hidden';
+		} else {
+			popUp.style.display = 'none';
+			document.body.style.overflow = '';
+		}
+	}
 
-let productRender = new ProductRender;
-productRender.init();
+	async isAdmin() {
+		let { admin } = await this.get('users', this.getCurrent());
+		if (admin) {
+			let usersAdd = document.querySelector('.users-add');
+			let link = '<a href="./admin.html" class="users-add__link">admin</a>'
+			usersAdd.insertAdjacentHTML('afterbegin', link);
+		}
+		else return;
+	}
 
-let prodCardImgSwitcher = new ProdCardImgSwitcher({
-	miniImgWrap : '.product-card__mini-imgs',
-	prodCard : '.product-card',
-});
-prodCardImgSwitcher.init();
+	async initClasses() {
+		if (this.getCurrent()) {
+			this.cards = new Cards;
+			await this.cards.init();
+	
+			this.busket = new Busket;
+			await this.busket.init();
+		}
+	}
 
-let busket = new Busket;
-busket.init();
+	async initHome() {
+		await this.initClasses();
+		this.isAdmin();
+		this.hideLoader();
+		this.throwToRegistration();
+	}
+}
+
+let home = new Home;
+home.initHome();

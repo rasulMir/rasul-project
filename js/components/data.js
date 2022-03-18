@@ -1,8 +1,12 @@
 export const users = [
-	{ login : 'rasul', password : '12345', isSignUpdates : false},
-	{ login : 'rasul2', password : '12345', isSignUpdates : false},
-	{ login : 'rasul3', password : '12345', isSignUpdates : false},
+	{ login : 'rasul', password : '12345', isSignUpdates : false, busket : [], admin : true},
+	{ login : 'rasul2', password : '12345', isSignUpdates : false, busket : [], admin : false},
+	{ login : 'rasul3', password : '12345', isSignUpdates : false, busket : [], admin : false},
 ];
+
+export const orders = [];
+
+export const busket = [];
 
 export const products = [
 	{ productCode : 1, img : './images/prod-1.jpg', price : 89.99, discount : 0, type :  'Womens burnt orange casual tee', description : 'Classic casual t-shirt for women on the move.  100% cotton.'},
