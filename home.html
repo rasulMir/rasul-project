@@ -601,6 +601,22 @@
 				</p>
 			</div>
 		</div>
+
+		
+		<div class="order">
+			<form class="order__form" action="#">
+				<label class="order__lbl" for="userName">
+					name
+					<input class="order__inp" type="tel" name="userName" id="userName" placeholder="your name" required>
+				</label>
+				<label class="order__lbl" for="userNumber">
+					phone number
+					<input class="order__inp" type="tel" name="userNumber" id="userNumber" placeholder="+998(**)***-**-**" required maxlength="13" minlength="13">
+				</label>
+				<button class="order__btn btn" type="reset" id="closeOrderBtn">close</button>
+				<button class="order__btn btn" type="submit" id="buyOrderBtn">buy</button>
+			</form>
+		</div>
 	</div>
 	<script src="./js/components/DB.js" type="module"></script>
 	<script src="./js/home.js" type="module"></script>

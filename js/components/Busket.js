@@ -1,39 +1,58 @@
 import Common from './Common.js';
 
 export default class Busket extends Common {
-
 	constructor() {
 		super();
 	}
 
 	async initDOM() {
-		this.user = await this.get('users', this.getCurrent());
-		this.cartInfo = document.querySelector('.cart__info');
 		this.cartList = document.querySelector('.cart-list');
+		this.cartInfo = document.querySelector('.cart__info');
 	}
 
 	totalPrice(busket) {
 		return busket.reduce((acc, item) => {
-			return acc + +((item.price / 100) * (100 - item.discount)).toFixed();
+			return acc + (+((item.price / 100) * (100 - item.discount)).toFixed() * item.amount);
 		}, 0);
 	}
 
-	displayBusket = async () => {
-
-		if (this.user) {
-			if (this.user.busket.length) {
-				let cartListTop = this.itemsInBusketTemple(this.user.busket);
-				this.cartList.innerHTML = cartListTop;
-			}
+	async itemsSum(ev) {
+		let current = ev.target;
+		if (current.closest('#itemsCounter')) {
+			let totalElem = document.querySelector('.cart-list__total');
+			let code = current.closest('.cart-list__item').dataset.code;
+			let product = this.user.busket.find(item => item.productCode === +code);
+			product.amount = +current.value;
+			await this.set('users', this.user);
+			totalElem.textContent = `Total: ${this.totalPrice(this.user.busket)}`;
 		}
-		
+		else return;
+	}
+
+	displayBusket = async () => {
+		let user = await this.get('users', this.getCurrent());
+		if (user && user.busket.length) {
+			let cartListTop = this.itemsInBusketTemple(user.busket);
+			this.cartList.innerHTML = cartListTop;
+		}
 		this.showItemsInBusket();
 	}
+
+	async showItemsInBusket() {
+		
+		let user = await this.get('users', this.getCurrent());
+		if (!user.busket.length) {
+			this.cartInfo.textContent = 'EMPTY';
+			this.cartList.textContent = 'EMPTY';
+		 } else {
+			this.cartInfo.textContent = user.busket.length;
+		 }
+	 }
 
 	itemsInBusketTemple(dataArr) {
 		let items = dataArr.map(item => {
 			return `
-				<li class="cart-list__item" data-key="${item.productCode}">
+				<li class="cart-list__item" data-code="${item.productCode}">
 					<div class="cart-list__img">
 						<img src="${item.img}" alt="product image">
 					</div>
@@ -41,7 +60,7 @@ export default class Busket extends Common {
 						${item.type}
 					</h3>
 					<label class="cart-list__lbl" for="itemsCounter">
-						<input class="cart-list__inp-counter" type="number" name="itemCount" id="itemsCounter" min="1" value="1">
+						<input class="cart-list__inp-counter" type="number" name="itemCount" id="itemsCounter" min="1" value="${item.amount}">
 					</label>
 					<button class="cart-list__btn" type="button" id="deleteItem">delete</button>
 				</li>
@@ -63,19 +82,19 @@ export default class Busket extends Common {
 		`;
 	}
 
-	async getCurrProduct(currBtn) {
-		let prodCode = currBtn.closest('.product-card').dataset.code;
-		return await this.get('products', +prodCode);
+	async getCurrProduct(currBtn, className, storeName) {
+		let prodCode = currBtn.closest(className).dataset.code;
+		return await this.get(storeName, +prodCode);
 	}
 
 	clearBusket = async (ev) => {
 		let clearItemsBtn = ev.target.closest('#clearItems');
 
 		if (clearItemsBtn) {
-			let busket = await this.getAll('busket');
-			busket.forEach(async item => await this.delete('busket', item.productCode));
-			this.user.busket = [];
-			await this.set('users', this.user);
+			
+			let user = await this.get('users', this.getCurrent());
+			user.busket.length = 0;
+			await this.set('users', user);
 			this.showPopUp('busket has been cleared');
 			this.displayBusket();
 		}
@@ -84,42 +103,35 @@ export default class Busket extends Common {
 	addToBusket = async (ev) => {
 		let currBtn = ev.target;
 		if (currBtn.closest('#addToBusket')) {
-			let product = await this.getCurrProduct(currBtn);
-			await this.set('busket', product);
-			this.user.busket = await this.getAll('busket');
-			let request = await this.set('users', this.user);
-			if (request) {
+			
+			let user = await this.get('users', this.getCurrent());
+			let product = await this.getCurrProduct(currBtn, '.product-card', 'products');
+			let bool = user.busket.find(item => item.productCode === product.productCode);
+			if (bool) {
+				this.showPopUp('this item has already added');
+				return;
+			}
+			else {
+				user.busket.push(product);
+				await this.set('users', user);
 				this.showPopUp(' item added ');
 				this.displayBusket();
 			}
-			else return;
 		}
 	}
 
 	clearItem = async (ev) => {
 		let delBtn = ev.target;
 		if (delBtn.closest('#deleteItem')) {
-			let code = delBtn.closest('.cart-list__item').dataset.key;
-			await this.delete('busket', +code);
-			this.user.busket = await this.getAll('busket');
-			let request = await this.set('users', this.user);
-			if (request) {
-				this.showPopUp(' item deleted ');
-				this.displayBusket();
-			}
-			else return;
-			
+			let user = await this.get('users', this.getCurrent());
+			let code = delBtn.closest('.cart-list__item').dataset.code;
+			let delIndex = user.busket.findIndex(item => item.productCode !== code);
+			user.busket.splice(delIndex, 1);
+			await this.set('users', user);
+			this.showPopUp(' item deleted ');
+			this.displayBusket();
 		}
 		else return;
-	}
-
-	showItemsInBusket() {
-		if (!this.user.busket.length) {
-			this.cartInfo.textContent = 'EMPTY';
-			this.cartList.textContent = 'EMPTY';
-		} else {
-			this.cartInfo.textContent = this.user.busket.length;
-		}
 	}
 
 	async init() {
@@ -129,6 +141,7 @@ export default class Busket extends Common {
 			this.addToBusket(ev);
 			this.clearItem(ev);
 			this.clearBusket(ev);
+			this.itemsSum(ev);
 		});
 	}
 }

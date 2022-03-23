@@ -6,6 +6,14 @@ export default class Common {
 		
 	}
 
+	counter(start) {
+		let begin = start;
+		return (str) => {
+			if (str === '+') return ++begin;
+			else return --begin;
+		}
+	}
+
 	getDB() {
 		return new Promise((res, rej) => {
 			if (!('indexedDB' in window)) reject('not supported');
@@ -59,6 +67,7 @@ export default class Common {
 			item.onerror = (err) => rej(false);
 		});
 	}
+
 
 	getCurrent = () => localStorage.getItem('current');
 

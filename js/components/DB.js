@@ -15,7 +15,6 @@ export default class DB {
 				this.putData(result, 'users', users);
 				this.putData(result, 'products', products);
 				this.putData(result, 'orders', orders);
-				this.putData(result, 'busket', busket);
 				localStorage.setItem('db', 'true');
 			}
 			else return;
@@ -29,8 +28,7 @@ export default class DB {
 			let result = ev.target.result;
 			this.createStore(result, 'users', 'login');
 			this.createStore(result, 'products', 'productCode');
-			this.createStore(result, 'orders', 'login');
-			this.createStore(result, 'busket', 'productCode');
+			this.createStore(result, 'orders', 'id');
 		}
 	}
 

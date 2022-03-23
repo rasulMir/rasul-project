@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/font-awesome.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/admin.css">
+	<title>Admin</title>
+</head>
+<body>
+	<div class="wrapper">
+		<!-- <div class="loader">
+			<div class="loader__circle">
+				<span class="loader__triangle loader__triangle_right"></span>
+				<span class="loader__triangle loader__triangle_left"></span>
+			</div>
+		</div> -->
+		<div class="pop-up">
+
+		</div>
+
+		<div class="admin">
+			<aside class="aside">
+				<nav class="admin-nav">
+					<a href="#" class="admin-nav__links admin-nav__links_active">
+						users
+					</a>
+					<a href="./products.html" class="admin-nav__links">
+						products
+					</a>
+					<a href="orders" class="admin-nav__links">
+						orders
+					</a>
+				</nav>
+			</aside>
+
+			<main class="main">
+				<div class="main__top">
+					<form action="#" class="form" id="registration">
+						<h3 class="form__title">
+							register
+						</h3>
+						<div class="form__inp-wrap">
+							<input class="form__inp" type="text" name="newLogin" id="newLogin" placeholder="Your Email." required>
+						</div>
+						
+						<div class="form__inp-wrap">
+							<input class="form__inp" type="password" name="newPass" id="newPass" placeholder="Your Password." required>
+						</div>
+
+						<div class="form__inp-wrap">
+							<input class="form__inp" type="password" name="newPassConfirm" id="newPassConfirm" placeholder="Confirm Password." required>
+						</div>
+
+						<label class="form__lbl form__inp-wrap" for="signUpdates">
+							<input class="form__inp-chbx" type="checkbox" name="signUpdates" id="signUpdates">
+							Sign up for exclusive updates, discounts, new arrivals, contest
+						</label>
+
+						<div class="form__bttm">
+							<button class="form__btn btn" type="submit">
+								creATe account
+							</button>
+						</div>
+					</form>
+				</div>
+				<div class="main__content">
+					<table class="table">
+						<thead class="thead">
+							<tr>
+								<th>image</th>
+								<th>login</th>
+								<th>password</th>
+								<th>change</th>
+								<th>delete</th>
+							</tr>
+						</thead>
+						<tbody class="tbody">
+							
+						</tbody>
+					</table>
+				</div>
+			</main>
+
+		</div>
+
+
+
+	</div>
+	<script src="./js/admin.js" type="module"></script>
+</body>
+</html>

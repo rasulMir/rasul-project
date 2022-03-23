@@ -1,7 +1,7 @@
 import Busket from "./components/Busket.js";
 import Cards from './components/Cards.js';
 import Common from "./components/Common.js";
-
+import Order from './components/Order.js';
 class Home extends Common {
 	constructor() {
 		super();
@@ -23,8 +23,7 @@ class Home extends Common {
 		let { admin } = await this.get('users', this.getCurrent());
 		if (admin) {
 			let usersAdd = document.querySelector('.users-add');
-			let link = '<a href="./admin.html" class="users-add__link">admin</a>'
-			usersAdd.insertAdjacentHTML('afterbegin', link);
+			usersAdd.innerHTML = '<a href="./admin.html" class="users-add__link">admin</a>'
 		}
 		else return;
 	}
@@ -36,6 +35,9 @@ class Home extends Common {
 	
 			this.busket = new Busket;
 			await this.busket.init();
+
+			this.order = new Order;
+			this.order.init();
 		}
 	}
 

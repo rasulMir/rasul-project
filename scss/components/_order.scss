@@ -1,0 +1,52 @@
+@import './var-s';
+@import './mixines';
+
+.order {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba($black, .4);
+	@include flex(center, center);
+	z-index: 12;
+	// display: none;
+	// .order__form
+	&__form {
+		max-width: 250px;
+		padding: 1.5rem;
+		@include flex(space-around, center);
+		flex-flow: row wrap;
+		background-color: rgba($white, .8);
+	}
+
+	// .order__lbl
+	&__lbl {
+		margin: 0 0 1rem 0;
+		text-transform: capitalize;
+		font-family: $monts;
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: $darkBrown;
+		flex: 0 0 100%;
+	}
+
+	// .order__inp
+	&__inp {
+		margin: .5rem 0 0 0;
+		padding: .5em .3rem;
+		display: block;
+		width: 100%;
+		outline: none;
+		border: .1rem solid transparent;
+
+		&:focus {
+			border-color: $darkBrown;
+		}
+	}
+
+	// .order__btn
+	&__btn {
+		padding: .5em 1em;
+		margin: 0 .5em 0 0;
+	}
+}

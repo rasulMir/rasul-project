@@ -1,0 +1,62 @@
+@import './var-s';
+@import './mixines';
+
+.table {
+	width: 100%;
+	font-family: $monts;
+	text-align: center;
+}
+.thead {
+	border-top: .1rem solid #d8d7db;
+	font-size: 1.6rem;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+.tbody {
+}
+
+tr {
+	border: .1rem solid transparent;
+	border-bottom-color: #000000;
+}
+
+td {
+	padding: .7em;
+}
+
+.table-img {
+	margin: 0 auto;
+	position: relative;
+	width: 50px;
+	height: 50px;
+
+	& > img {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+.table-txt {
+	font-size: 1.5rem;
+}
+
+.table-btn {
+	width: 100%;
+	color: $white;
+	text-transform: capitalize;
+	font-size: 1.5rem;
+	padding: .7em;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: .2em;
+	&_blue {
+		background-color: #027AFF;
+	}
+	&_red {
+		background-color: #DD3543;
+	}
+}
