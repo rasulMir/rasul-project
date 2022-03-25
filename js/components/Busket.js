@@ -21,10 +21,11 @@ export default class Busket extends Common {
 		if (current.closest('#itemsCounter')) {
 			let totalElem = document.querySelector('.cart-list__total');
 			let code = current.closest('.cart-list__item').dataset.code;
-			let product = this.user.busket.find(item => item.productCode === +code);
+			let user = await this.get('users', this.getCurrent());
+			let product = user.busket.find(item => item.productCode === +code);
 			product.amount = +current.value;
-			await this.set('users', this.user);
-			totalElem.textContent = `Total: ${this.totalPrice(this.user.busket)}`;
+			await this.set('users', user);
+			totalElem.textContent = `Total: ${this.totalPrice(user.busket)}`;
 		}
 		else return;
 	}
@@ -40,13 +41,16 @@ export default class Busket extends Common {
 
 	async showItemsInBusket() {
 		
-		let user = await this.get('users', this.getCurrent());
-		if (!user.busket.length) {
-			this.cartInfo.textContent = 'EMPTY';
-			this.cartList.textContent = 'EMPTY';
-		 } else {
-			this.cartInfo.textContent = user.busket.length;
-		 }
+		let user = await this.get('users', this.getCurrent()) || false;
+		if (user) {
+			if (!user.busket.length) {
+				this.cartInfo.textContent = 'EMPTY';
+				this.cartList.textContent = 'EMPTY';
+			} 
+			else {
+			 this.cartInfo.textContent = user.busket.length;
+			}
+		}
 	 }
 
 	itemsInBusketTemple(dataArr) {

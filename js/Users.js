@@ -1,6 +1,6 @@
-import Registration from './Registration.js';
+import Registration from './components/Registration.js';
 
-export default class Users extends Registration {
+class Users extends Registration {
 	constructor () {
 		super();
 	}
@@ -25,7 +25,7 @@ export default class Users extends Registration {
 						</div>
 					</td>
 					<td>
-						<button class="table-btn table-btn_blue" type="button">
+						<button class="table-btn table-btn_blue" id="changeBtn" type="button">
 							change
 						</button>
 					</td>
@@ -76,13 +76,56 @@ export default class Users extends Registration {
 		else return;
 	}
 
-	async ChangeUser(ev) {
-		
+	async saveChangeHandler(ev) {
+		let changeBtn = ev.target.closest('#saveBtn');
+		let pass1 = document.querySelector('#passChange');
+		let pass2 = document.querySelector('#passChange2');
+
+		if (changeBtn) {
+			let isPassConfirm = this.checkPass(pass1.value, pass2.value);
+			
+			if (isPassConfirm) {
+				let user = await this.get('users', this.log);
+				user.password = pass1.value || user.password;
+				await this.set('users', user);
+				this.showPopUp('all changes have received');
+				this.visibilityChangeWrap();
+				this.showUsers();
+			}
+			else {
+				this.showPopUp('password is not confirmed');
+			}
+
+			
+			this.clearInputs([pass1, pass2]);
+		}
+
+		else return;
+	}
+
+	closeHandler(ev) {
+		let closeBtn = ev.target.closest('#closeBtn');
+
+		if (closeBtn) {
+			this.visibilityChangeWrap(false);
+		} 
+		else return;
+	}
+
+	async changeUserBtn(ev) {
+		let changeBtn = ev.target.closest('#changeBtn');
+
+		if (changeBtn) {
+			this.visibilityChangeWrap(true);
+			this.log = ev.target.closest('tr').dataset.log;
+		}
+
+		else return;
 	}
 
 	init() {
 		this.showUsers();
-
+		this.hideLoader();
 		this.form.addEventListener('submit', ev => {
 			ev.preventDefault();
 			this.addUser();
@@ -90,6 +133,13 @@ export default class Users extends Registration {
 
 		document.addEventListener('click', ev => {
 			this.deleteUser(ev);
+			this.changeUserBtn(ev);
+			this.closeHandler(ev);
+			this.saveChangeHandler(ev);
 		});
 	}
 }
+
+let users = new Users;
+
+users.init();

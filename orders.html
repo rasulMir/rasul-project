@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/font-awesome.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/orders.css">
+	<title>Products</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="loader">
+			<div class="loader__circle">
+				<span class="loader__triangle loader__triangle_right"></span>
+				<span class="loader__triangle loader__triangle_left"></span>
+			</div>
+		</div>
+		<div class="pop-up">
+
+		</div>
+
+		<div class="admin">
+			<aside class="aside">
+				<nav class="admin-nav">
+					<a href="./admin.html" class="admin-nav__links">
+						users
+					</a>
+					<a href="./products.html" class="admin-nav__links">
+						products
+					</a>
+					<a href="#" class="admin-nav__links admin-nav__links_active">
+						orders
+					</a>
+				</nav>
+			</aside>
+
+			<main class="main">
+				<div class="main__top"></div>
+				<div class="main__content">
+					<table class="table">
+						<thead class="thead">
+							<tr>
+								<th>client name</th>
+								<th>phone number</th>
+								<th>show orders</th>
+								<th>execute</th>
+							</tr>
+						</thead>
+						<tbody class="tbody">
+							
+						</tbody>
+					</table>
+				</div>
+			</main>
+
+		</div>
+
+		<div class="change-wrap change-wrap_hidden">
+			<div class="change table-wrap">
+				<table class="table">
+					<thead class="thead">
+						<tr>
+							<th>image</th>
+							<th>type</th>
+							<th>price</th>
+							<th>product code</th>
+							<th>count</th>
+							<th>discount</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<!-- <tr data-code="${child.productCode}">
+							<td>
+								<div class="table-img">
+									<img src="./images/prod-3.jpg" alt="product image">
+								</div>
+							</td>
+							<td>
+								<div class="table-txt">
+									asssssssssss
+								</div>
+							</td>
+							<td>
+								<div class="table-txt">
+									122
+								</div>
+							</td>
+							<td>
+								<div class="table-txt">
+									1
+								</div>
+							</td>
+							<td>
+								<div class="table-txt">
+								 2
+								</div>
+							</td>
+							
+							<td>
+								<div class="table-txt">
+								 2
+								</div>
+							</td>
+						</tr> -->
+					</tbody>
+				</table>
+
+				<span class="table-close-btn table-btn table-btn_blue" id="closeShowBtn">close</span>
+			</div>
+		</div>
+
+
+	</div>
+	<script src="./js/Orders.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/font-awesome.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/products.css">
+	<title>Products</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="loader">
+			<div class="loader__circle">
+				<span class="loader__triangle loader__triangle_right"></span>
+				<span class="loader__triangle loader__triangle_left"></span>
+			</div>
+		</div> -->
+		<div class="pop-up">
+
+		</div>
+
+		<div class="admin">
+			<aside class="aside">
+				<nav class="admin-nav">
+					<a href="./admin.html" class="admin-nav__links">
+						users
+					</a>
+					<a href="#" class="admin-nav__links admin-nav__links_active">
+						products
+					</a>
+					<a href="./orders.html" class="admin-nav__links">
+						orders
+					</a>
+				</nav>
+			</aside>
+
+			<main class="main">
+				<div class="main__top">
+					<form class="form">
+						<div class="inp-wrap">
+							<input class="form__inp" type="text" name="inpType" id="inpType" placeholder="Type" required>
+						</div>
+						<div class="inp-wrap">
+							<input class="form__inp" type="text" name="inpPrice" id="inpPrice" placeholder="Price" required>
+						</div>
+						<div class="inp-wrap">
+							<input class="form__inp" type="text" name="inpDiscount" id="inpDiscount" placeholder="Discount" required>
+						</div>
+						<div class="inp-wrap">
+							<input class="form__inp" type="text" name="inpImg" id="inpImg" placeholder="image url only" required>
+						</div>
+						<div class="inp-wrap inp-wrap_textarea">
+							<textarea class="form__inp" name="inpDescr" id="inpDescr" cols="30" rows="10" placeholder="description" required></textarea>
+						</div>
+						<button class="table-btn table-btn_blue" type="submit">
+							add product
+						</button>
+					</form>
+				</div>
+				<div class="main__content">
+					<table class="table">
+						<thead class="thead">
+							<tr>
+								<th>image</th>
+								<th>type</th>
+								<th>price</th>
+								<th>product code</th>
+								<th>discount</th>
+								<th>change</th>
+								<th>delete</th>
+							</tr>
+						</thead>
+						<tbody class="tbody">
+							
+						</tbody>
+					</table>
+				</div>
+			</main>
+
+		</div>
+
+		<div class="change-wrap change-wrap_hidden">
+			<form class="change-form change">
+				<div class="inp-wrap">
+					<input class="form__inp" type="text" name="changeInpType" id="changeInpType" placeholder="Type">
+				</div>
+				<div class="inp-wrap">
+					<input class="form__inp" type="text" name="changeInpPrice" id="changeInpPrice" placeholder="Price">
+				</div>
+				<div class="inp-wrap">
+					<input class="form__inp" type="text" name="changeInpDiscount" id="changeInpDiscount" placeholder="Discount">
+				</div>
+				<div class="inp-wrap">
+					<input class="form__inp" type="text" name="changeInpImg" id="changeInpImg" placeholder="image url only">
+				</div>
+				<div class="inp-wrap inp-wrap_textarea">
+					<textarea class="form__inp" name="changeInpDescr" id="changeInpDescr" cols="30" rows="5" placeholder="description"></textarea>
+				</div>
+				<button class="change__btn" type="button" id="closeBtn">close</button>
+				<button class="change__btn" type="button" id="saveBtn">save</button>
+			</form>
+		</div>
+
+
+	</div>
+	<script src="./js/Products.js" type="module"></script>
+</body>
+</html>

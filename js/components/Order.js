@@ -6,7 +6,7 @@ export default class Order extends Common {
 	}
 
 	stylesForm() {
-		this.order.style.display = 'none';
+		// this.order.style.display = 'none';
 		this.order.style.height = `${window.screen.availHeight}px`;
 	}
 
@@ -16,6 +16,8 @@ export default class Order extends Common {
 		this.buyItems = document.querySelector('#buyItems');
 		this.form = document.querySelector('.order__form');
 		this.cartList = document.querySelector('.cart-list');
+		this.userNumber = document.querySelector('#userNumber');
+		this.userName = document.querySelector('#userName');
 	}
 
 	showHideOrderForm = (ev) => {
@@ -35,14 +37,13 @@ export default class Order extends Common {
 			return false;
 		}
 		let orders = await this.getAll('orders');
-		const userNumber = document.querySelector('#userNumber').value;
-		const userName = document.querySelector('#userName').value;
 		let id = this.counter(orders.length);
 		return {
 			id : id('+'),
-			name : userName,
-			telNumber : userNumber,
-			oreders : user.busket,
+			name : this.userName.value,
+			telNumber : this.userNumber.value,
+			orders : user.busket,
+			isDone : false,
 		};
 	}
 
@@ -51,7 +52,6 @@ export default class Order extends Common {
 		let cartInfo = document.querySelector('.cart__info');
 		cartInfo.textContent = 'EMPTY';
 		cartList.innerHTML = 'EMPTY';
-
 	}
 
 	submitHandler = async () => {
@@ -67,9 +67,10 @@ export default class Order extends Common {
 		await this.set('orders', order);
 		user.busket.splice(0, user.busket.length);
 		await this.set('users', user);
-		this.showPopUp('order successfully completed');
+		this.showPopUp('thank you for your purchase');
 		this.order.style.display = 'none';
 		this.clearBusketDOM();
+		this.clearInputs([this.userName, this.userNumber]);
 	}
 
 	init() {

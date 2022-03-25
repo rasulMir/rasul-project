@@ -1,0 +1,21 @@
+@import './components/admin';
+@import './components/table';
+@import './components/change';
+
+.table-wrap {
+	padding: 5rem 1.5rem 1.5rem 1.5rem;
+	width: 70%;
+	height: 300px;
+	overflow-y: auto;
+	transform: translate(-50%, -50%);
+}
+
+.table-close-btn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: auto;
+}
+.table-btn_green {
+	background-color: #72C183;
+}

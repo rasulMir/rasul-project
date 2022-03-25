@@ -1,0 +1,34 @@
+@import './var-s';
+@import './mixines';
+.main__top {
+	width: 70%;
+}
+.form {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	// .form__inp
+	&__inp {
+	}
+}
+.inp-wrap {
+	flex: 0 0 45%;
+	margin: 0 0 1.5rem 0;
+
+	&_textarea {
+		flex: 0 0 100%;
+	} 
+}
+.table-btn {
+	flex: 0 0 20%;
+	// .table-btn_blue
+
+	&_blue {
+	}
+}
+
+.change-form {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}

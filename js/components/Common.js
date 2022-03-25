@@ -68,7 +68,6 @@ export default class Common {
 		});
 	}
 
-
 	getCurrent = () => localStorage.getItem('current');
 
 	hideLoader() {
@@ -103,6 +102,15 @@ export default class Common {
 		popUp.style.top = `${top - 150}px`;
 		let timeOut = setTimeout(() => popUp.classList.remove('pop-up_show'), 1500);
 		setInterval(() => clearTimeout(timeOut), 1501);
+	}
+
+	visibilityChangeWrap(bool) {
+		let changeWrap = document.querySelector('.change-wrap');
+		if (bool) {
+			changeWrap.classList.remove('change-wrap_hidden');
+		} else {
+			changeWrap.classList.add('change-wrap_hidden');
+		}
 	}
 
 	clearInputs(inps) {

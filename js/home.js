@@ -20,7 +20,7 @@ class Home extends Common {
 	}
 
 	async isAdmin() {
-		let { admin } = await this.get('users', this.getCurrent());
+		let { admin } = await this.get('users', this.getCurrent()) || false;
 		if (admin) {
 			let usersAdd = document.querySelector('.users-add');
 			usersAdd.innerHTML = '<a href="./admin.html" class="users-add__link">admin</a>'

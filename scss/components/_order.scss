@@ -9,7 +9,7 @@
 	background-color: rgba($black, .4);
 	@include flex(center, center);
 	z-index: 12;
-	// display: none;
+	display: none;
 	// .order__form
 	&__form {
 		max-width: 250px;
