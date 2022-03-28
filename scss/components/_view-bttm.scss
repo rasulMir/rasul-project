@@ -1,0 +1,44 @@
+@import './var-s';
+@import './mixines';
+
+.view-bttm {
+	font-family: $monts;
+}
+
+.titles {
+	@include flex(flex-start, center);
+	background-color: #f8f8f8;
+
+	&__bttm {
+		
+	}
+	&__descr {
+		display: none;
+		padding: 2.5rem;
+		font-size: 1.5rem;
+		color: rgb(114, 114, 114);
+		line-height: 1.538;
+
+		& > p:first-child {
+			text-transform: uppercase;
+		}
+
+		&:first-child {
+			display: block;
+		}
+	}
+
+	&__item {
+		margin: 0 .7rem 0 0;
+		padding: 2rem;
+		color: #575153;
+		font-weight: bold;
+		font-size: 1.6rem;
+		text-transform: uppercase;
+
+		&_active {
+			background-color: #333333;
+			color: #fff;
+		}
+	}
+}

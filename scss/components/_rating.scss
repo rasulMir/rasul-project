@@ -1,0 +1,40 @@
+@import './var-s';
+@import './mixines';
+
+.descr {
+
+	// .descr__rating
+	&__rating {
+		@include flex(space-between, center);
+		flex-direction: row-reverse;
+	}
+	
+	// .descr__lbl
+	&__lbl {
+		cursor: pointer;
+
+		&:hover {
+			color: #d1b961;
+		}
+
+		& > i {
+			font-size: 1.7rem;
+			display: block;
+			transition: .3s ease;
+		}
+		
+		&:not(:first-child) {
+			margin: 0 .3rem 0 0;
+		}
+	}
+
+	// .descr__rating-inp
+	&__rating-inp {
+		display: none;
+
+		&:hover ~ .descr__lbl,
+		&:checked ~ .descr__lbl {
+			color: #d1b961;
+		}
+	}
+}

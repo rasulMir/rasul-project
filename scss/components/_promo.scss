@@ -18,6 +18,7 @@
 		text-transform: uppercase;
 		@include flex(space-around, center);
 	}
+
 	// .promo-content__bttm
 	&__bttm {
 		@include flex(flex-end);

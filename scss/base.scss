@@ -200,4 +200,31 @@
 		}
 	}
 }
+
+
+.product-price {
+  font-family: $monts;
+  color: $greyWhite;
+  text-transform: uppercase;
+	font-size: 2.1rem;
+	// .product-price__price
+	&__price {
+		padding: 0 0 0 1rem;
+		position: relative;
+		line-height: 1em;
+		// .product-price__price_before
+		&_before {
+			text-decoration: line-through;
+			margin: 0 1.4rem 0 0;
+		}
+
+		&::before {
+			content: '£';
+			position: absolute;
+			top: 0;
+			left: 0;
+			font-size: .5em;
+		}
+	}
+}
 @import './components/loader';

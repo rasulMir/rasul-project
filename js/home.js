@@ -2,6 +2,7 @@ import Busket from "./components/Busket.js";
 import Cards from './components/Cards.js';
 import Common from "./components/Common.js";
 import Order from './components/Order.js';
+import Search from "./components/Search.js";
 class Home extends Common {
 	constructor() {
 		super();
@@ -38,6 +39,9 @@ class Home extends Common {
 
 			this.order = new Order;
 			this.order.init();
+
+			this.search = new Search;
+			this.search.init();
 		}
 	}
 

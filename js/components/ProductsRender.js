@@ -8,7 +8,7 @@ export default class ProductsRender extends Common{
 
 	prodCardTemple({ productCode, img, price, discount , type, description}) {
 		return `
-			<div class="product-card " data-code="${productCode}">
+			<div class="product-card" data-code="${productCode}">
 				<img class="product-card__main-image" src="${img}" alt="main product image">
 				<div class="product-card__top">
 					<div class="product-card__price-wrap">
@@ -27,8 +27,7 @@ export default class ProductsRender extends Common{
 					</div>
 				</div>
 				<div class="product-card__bttm">
-					<div class="product-card__prod-name">
-						${type}
+					<div class="product-card__prod-name">${type.trim()}
 						<span class="product-price">
 							<span class="product-price__price product-price__price_before">
 								${(discount > 0) ? price : ''}

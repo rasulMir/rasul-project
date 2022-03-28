@@ -6,12 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./css/font-awesome.min.css">
 	<link rel="stylesheet" href="./css/base.css">
-	<link rel="stylesheet" href="./css/home.css">
-	<title>Home</title>
+	<link rel="stylesheet" href="./css/view.css">
+	<title>View</title>
 </head>
 <body>
-
-	<div class="wrapper hidden">
+	<div class="wrapper">
 		<div class="loader">
 			<div class="loader__circle">
 				<span class="loader__triangle loader__triangle_right"></span>
@@ -33,8 +32,8 @@
 								<i class="fa fa-angle-down currency__arrow"></i>
 							</div>
 							<div class="users-add">
-								<a href="./register.html" class="users-add__link">register</a>
-								<a href="./register.html" class="users-add__link">sign in</a>
+								<a href="#" class="users-add__link">register</a>
+								<a href="#" class="users-add__link">sign in</a>
 							</div>
 						</div>
 
@@ -46,21 +45,17 @@
 								<i class="fa fa-angle-down cart__arrow"></i>
 							</div>
 
-							<div class="cart-list">
-							</div>
-
 						</div>
 						
 					</div>
 
 				</div>
 			</div>
-			
-			<div class="promo">
+			<div class="head-bttm">
 				<div class="container-b">
 					<div class="head">
 
-						<a href="#" class="logo">
+						<a href="./home.html" class="logo">
 							<span class="logo__left-word">Avenue</span>
 							<span class="logo__right-word">Fashion</span>
 						</a>
@@ -316,107 +311,255 @@
 						</nav>
 
 					</div>
-
-					<div class="promo-content">
-						<div class="promo-content__title">
-							<span>a</span>
-							<span>v</span>
-							<span>e</span>
-						</div>
-						<div class="promo-content__bttm">
-							<button class="promo-content__bttm-btn btn">shop men’s collection</button>
-						</div>
-					</div>
 				</div>
 			</div>
-
 		</header>
 
-		<main class="main">
-			
-			<div class="products">
-				<div class="container-b">
-					<ul class="products-category">
-						<li class="products-category__item">
-							popular
-						</li>
-						<li class="products-category__item">
-							new arrivals
-						</li>
-						<li class="products-category__item">
-							best sellers
-						</li>
-						<li class="products-category__item">
-							special offers
-						</li>
-						<li class="products-category__item">
-							coming soon
-						</li>
-					</ul>
-					
-					<div class="products-content">
-						
+		<div class="main">
+
+			<div class="promo">
+				<h1 class="promo__title">
+					Product view
+				</h1>
+				<h3 class="promo__slogan">
+					mens - casuals - hoodies & sweatshirts - <span>ave classic sweatshirt</span>
+				</h3>
+			</div>
+
+			<div class="view-wrap">
+				<div class="container-s">
+					<div class="view">
+						<div class="view-top">
+							<div class="image-res">
+
+							</div>
+							<div class="view-top__col">
+								<div class="slider">
+									<div class="cursor-square"></div>
+									<div class="slider-cont">
+										<img src="./images/default.jpg" alt="slider image" class="slider__img">
+										<img src="./images/default.jpg" alt="slider image" class="slider__img">
+									</div>
+								</div>
+								<button class="slider__btns slider__btns_prev" type="button"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+								<button class="slider__btns slider__btns_next" type="button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+							</div>
+							<div class="view-top__col descr">
+								<h3 class="descr__title">
+									Ave classic sweatshirt
+								</h3>
+
+								<div class="descr__review">
+									<div class="descr__rating">
+										<div class="descr__reviews">3 review(s)</div>
+										<input class="descr__rating-inp" type="radio" name="star" id="star1">
+										<label for="star1" class="descr__lbl">
+											<i class="fa fa-star" aria-hidden="true"></i>
+										</label>
+										<input class="descr__rating-inp" type="radio" name="star" id="star2">
+										<label for="star2" class="descr__lbl">
+											<i class="fa fa-star" aria-hidden="true"></i>
+										</label>
+										<input class="descr__rating-inp" type="radio" name="star" id="star3">
+										<label for="star3" class="descr__lbl">
+											<i class="fa fa-star" aria-hidden="true"></i>
+										</label>
+										<input class="descr__rating-inp" type="radio" name="star" id="star4">
+										<label for="star4" class="descr__lbl">
+											<i class="fa fa-star" aria-hidden="true"></i>
+										</label>
+										<input class="descr__rating-inp" type="radio" name="star" id="star5">
+										<label for="star5" class="descr__lbl">
+											<i class="fa fa-star" aria-hidden="true"></i>
+										</label>
+									</div>
+									<div class="descr__add-review">add review</div>
+									<ul class="descr__socials">
+										<li>
+											share:
+										</li>
+										<li>
+											<i class="fa fa-facebook" aria-hidden="true"></i>
+										</li>
+										<li>
+											<i class="fa fa-facebook" aria-hidden="true"></i>
+										</li>
+										<li>
+											<i class="fa fa-facebook" aria-hidden="true"></i>
+										</li>
+										<li>
+											<i class="fa fa-facebook" aria-hidden="true"></i>
+										</li>
+										<li>
+											<i class="fa fa-facebook" aria-hidden="true"></i>
+										</li>
+										<li>
+											<i class="fa fa-facebook" aria-hidden="true"></i>
+										</li>
+									</ul>
+								</div>
+
+								<div class="descr__price">
+									<span class="product-price">
+										<span class="product-price__price product-price__price_before">
+											107
+										</span>
+										<span class="product-price__price">
+											89.99
+										</span>
+									</span>
+								</div>
+
+								<div class="descr__prod-props">
+
+									<div class="descr__prod-search">
+										availabilty:
+										<span>
+											in stock
+										</span>
+									</div>
+									<div class="descr__prod-search">
+										Product Code:   
+										<span>
+											#499577
+										</span>
+									</div>
+									<div class="descr__prod-search">
+										Tags:
+										<a class="descr__tags">
+											Classic,
+										</a>
+										<a class="descr__tags">
+											casual,
+										</a>
+										<a class="descr__tags">
+											v-neck,
+										</a>
+										<a class="descr__tags">
+											loose
+										</a>
+									</div>
+
+								</div>
+
+								<div class="descr__prod-info">
+									<p class="descr__prod-txt">
+										Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi praesentium animi dicta porro alias, inventore vitae delectus eligendi, minima laborum ad officia reprehenderit esse excepturi laudantium recusandae? Voluptas, veniam aperiam!
+									</p>
+									<ul class="descr__prod-info-list">
+										<li>Elasticated cuffs</li>
+										<li>Casual fit</li>
+										<li>100% Cotton</li>
+										<li>Free shipp</li>
+									</ul>
+								</div>
+
+								<div class="descr-bttm">
+									
+									<div class="selects">
+										<div class="selects__col">
+											colour
+											<select class="selects__select" name="" id="">
+												<option class="selects__options" value="blue">select colour</option>
+												<option class="selects__options" value="red">select colour</option>
+												<option class="selects__options" value="green">select colour</option>
+											</select>
+										</div>
+										<div class="selects__col">
+											size
+											<select class="selects__select" name="" id="">
+												<option class="selects__options" value="blue">select size</option>
+												<option class="selects__options" value="red">select size</option>
+												<option class="selects__options" value="green">select size</option>
+											</select>
+										</div>
+										<div class="selects__col">
+											qty
+											<select class="selects__select" name="" id="">
+												<option class="selects__options" value="blue">1</option>
+												<option class="selects__options" value="red">2</option>
+												<option class="selects__options" value="green">3</option>
+											</select>
+										</div>
+									</div>
+		
+									<div class="btns">
+										<button class="btn btns__btn">
+											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+											add to cart
+										</button>
+										<button class="btn btns__btn">
+											<i class="fa fa-heart-o" aria-hidden="true"></i>
+											add to lookbok
+										</button>
+									</div>
+
+									<div class="add-compare">
+										<a href="#" class="add-compare__link">
+											<span>
+												<i class="product-card-btns__icon fa fa-compress"></i>
+											</span>
+											
+											add to compare
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="view-bttm">
+							<ul class="titles">
+								<li class="titles__item titles__item_active">
+									description
+								</li>
+								<li class="titles__item">
+									video					
+								</li>
+								<li class="titles__item">
+									size & spec
+								</li>
+								<li class="titles__item">
+									delivery & returns
+								</li>
+								<li class="titles__item">
+									reviews
+								</li>
+							</ul>
+							<div class="titles__bttm">
+								
+								<div class="titles__descr">
+									<p>Lorem ipsum dolor sit amet.</p>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sequi, veritatis mollitia quasi iure placeat, quidem reiciendis velit unde harum beatae. Voluptas, eaque! Id, inventore?</p>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, officiis? Obcaecati officiis suscipit doloribus omnis exercitationem ex, necessitatibus harum expedita sapiente iure voluptate repellendus provident tempora velit odio debitis. Voluptates adipisci quia laudantium incidunt recusandae!</p>
+								</div>
+								
+								<div class="titles__descr">
+									<p>Lorem ipsum dolor sit amet.</p>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sequi, veritatis mollitia quasi iure placeat, quidem reiciendis velit unde harum beatae. Voluptas, eaque! Id, inventore?</p>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, officiis? Obcaecati officiis suscipit doloribus omnis exercitationem ex, necessitatibus harum expedita sapiente iure voluptate repellendus provident tempora velit odio debitis. Voluptates adipisci quia laudantium incidunt recusandae!</p>
+								</div>
+								<div class="titles__descr">
+									<p>Lorem ipsum dolor sit amet.</p>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sequi, veritatis mollitia quasi iure placeat, quidem reiciendis velit unde harum beatae. Voluptas, eaque! Id, inventore?</p>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, officiis? Obcaecati officiis suscipit doloribus omnis exercitationem ex, necessitatibus harum expedita sapiente iure voluptate repellendus provident tempora velit odio debitis. Voluptates adipisci quia laudantium incidunt recusandae!</p>
+								</div>
+								<div class="titles__descr">
+									<p>Lorem ipsum dolor sit amet.</p>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sequi, veritatis mollitia quasi iure placeat, quidem reiciendis velit unde harum beatae. Voluptas, eaque! Id, inventore?</p>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, officiis? Obcaecati officiis suscipit doloribus omnis exercitationem ex, necessitatibus harum expedita sapiente iure voluptate repellendus provident tempora velit odio debitis. Voluptates adipisci quia laudantium incidunt recusandae!</p>
+								</div>
+								<div class="titles__descr">
+									<p>Lorem ipsum dolor sit amet.</p>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sequi, veritatis mollitia quasi iure placeat, quidem reiciendis velit unde harum beatae. Voluptas, eaque! Id, inventore?</p>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, officiis? Obcaecati officiis suscipit doloribus omnis exercitationem ex, necessitatibus harum expedita sapiente iure voluptate repellendus provident tempora velit odio debitis. Voluptates adipisci quia laudantium incidunt recusandae!</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			
-			<div class="lookbok">
-				<div class="lookbok-card">
-					<div class="lookbok-card__body">
-						<div class="lookbok-card__title">
-							<span>
-								men's
-							</span>
-							lookbook
-						</div>
-						<p class="lookbok-card__txt">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto esse, sint, qui, non nihil quaerat expedita reiciendis doloremque incidunt optio accusantium accusamus illo voluptates dolorem illum. Aspernatur odio sint harum.
-						</p>
-						<button class="lookbok-card__btn btn">
-							view now
-						</button>
-					</div>
-					<img class="lookbok-card__img" src="./images/lookbok-1.jpg" alt="lookbok image">
-				</div>
-
-				<div class="lookbok-card">
-					<div class="lookbok-card__body">
-						<div class="lookbok-card__title">
-							<span>
-								women's
-							</span>
-							lookbook
-						</div>
-						<p class="lookbok-card__txt">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto esse, sint, qui, non nihil quaerat expedita reiciendis doloremque incidunt optio accusantium accusamus illo voluptates dolorem illum. Aspernatur odio sint harum.
-						</p>
-						<button class="lookbok-card__btn btn">
-							view now
-						</button>
-					</div>
-					<img class="lookbok-card__img" src="./images/lookbok-2.jpg" alt="lookbok image">
-				</div>
-
-				<div class="lookbok-card">
-					<div class="lookbok-card__body">
-						<div class="lookbok-card__title">
-							<span>
-								your
-							</span>
-							lookbook
-						</div>
-						<p class="lookbok-card__txt">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto esse, sint, qui, non nihil quaerat expedita reiciendis doloremque incidunt optio accusantium accusamus illo voluptates dolorem illum. Aspernatur odio sint harum.
-						</p>
-						<button class="lookbok-card__btn btn">
-							view now
-						</button>
-					</div>
-					<img class="lookbok-card__img" src="./images/lookbok-3.jpg" alt="lookbok image">
-				</div>
-			</div>
-
-		</main>
+		</div>
 
 		<footer class="footer">
 			<div class="footer-links">
@@ -592,33 +735,7 @@
 				</div>
 			</div>
 		</footer>
-
-		<div class="pop-up-link">
-			<div class="pop-up-link__inner-wrap">
-				<p class="pop-up-link__text">
-					you are not logged in, 
-					<a href="./register.html" class="pop-up-link__link">log in</a> or <a href="./register.html" class="pop-up-link__link">register</a> 
-				</p>
-			</div>
-		</div>
-
-		
-		<div class="order">
-			<form class="order__form" action="#">
-				<label class="order__lbl" for="userName">
-					name
-					<input class="order__inp" type="tel" name="userName" id="userName" placeholder="your name" required>
-				</label>
-				<label class="order__lbl" for="userNumber">
-					phone number
-					<input class="order__inp" type="tel" name="userNumber" id="userNumber" pattern="^+[0-9]{12}" title="enter your number in international variant" placeholder="+998(**)***-**-**" required maxlength="13" minlength="13">
-				</label>
-				<button class="order__btn btn" type="reset" id="closeOrderBtn">close</button>
-				<button class="order__btn btn" type="submit" id="buyOrderBtn">buy</button>
-			</form>
-		</div>
 	</div>
-	<script src="./js/components/DB.js" type="module"></script>
-	<script src="./js/home.js" type="module"></script>
+	<script src="./js/view.js" type="module"></script>
 </body>
 </html>

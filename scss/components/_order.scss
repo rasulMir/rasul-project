@@ -42,6 +42,9 @@
 		&:focus {
 			border-color: $darkBrown;
 		}
+		[id="userNumber"]:invalid {
+			border-color: red;
+		}
 	}
 
 	// .order__btn
